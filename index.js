@@ -11,7 +11,7 @@ async function start() {
     .then((resp) => {
       const arr = resp.data.slice(5);
       images = arr.map((item) => {
-        return item.links.download
+        return item.urls.thumb
       })
     })
   
