@@ -1,0 +1,38 @@
+name: Generate
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Install dependencies
+        run: pnpm install
+  
+      - name: Run start
+        run: pnpm run start
+
+      - name: push
+        uses: actions-x/commit@v6
+        with:
+          email: 2580929172@qq.com
+          name: GitHub Actions Autocommitter
+          message: "chore: update"
+          branch: master
+          repository: https://github.com/code-bot-9527/web-scraper-css-tricks
+          token: ${{ secrets.MY_TOKEN }}
