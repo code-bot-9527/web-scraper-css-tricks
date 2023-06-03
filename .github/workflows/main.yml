@@ -36,6 +36,6 @@ jobs:
           email: 2580929172@qq.com
           name: GitHub Actions Autocommitter
           message: "chore: update"
-          branch: master
+          branch: main
           repository: https://github.com/code-bot-9527/web-scraper-css-tricks
           token: ${{ secrets.MY_TOKEN }}
